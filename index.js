@@ -11,6 +11,7 @@ const port = 3001;
 const apiKey = process.env.ASSEMBLYAI_API_KEY;
 
 const client = new AssemblyAI({ apiKey });
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -35,6 +36,10 @@ app.post("/upload", upload.single("audio"), async (req, res) => {
     console.error("Error transcribing audio:", error);
     res.status(500).json({ error: "Internal server error" });
   }
+});
+
+app.get("/", (req, res) => {
+  res.send("Funcionando!");
 });
 
 app.listen(port, () => {
