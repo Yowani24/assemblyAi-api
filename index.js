@@ -11,7 +11,7 @@ const port = 3001;
 const apiKey = process.env.ASSEMBLYAI_API_KEY;
 
 const client = new AssemblyAI({ apiKey });
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 app.use(cors());
 app.use(bodyParser.json());
